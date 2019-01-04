@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move &apos;wildflower&apos; to &apos;WEB-INF&apos;" description="Move &apos;wildflower&apos; to &apos;WEB-INF&apos;" destination="WebContent/WEB-INF" element1="WebContent/wildflower" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1507022579469" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;wildflower&apos; to &apos;WebContent&apos;" description="Move &apos;wildflower&apos; to &apos;WebContent&apos;" destination="WebContent" element1="WebContent/WEB-INF/wildflower" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1507022613381" updateReferences="true"/>
+</session>

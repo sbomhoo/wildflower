@@ -1,0 +1,84 @@
+<야생화 커뮤니티 wildflower_프로젝트 개요>
+
+- servlet을 사용하지 않고 jsp만을 사용
+- 모바일웹 형태
+- 게시판, 로그인, 회원정보수정,회원탈퇴,로그아웃
+- 공지사항 게시판은 운영자만 입력가능
+- 나머지 게시판은 이미지업로드, 답글 기능이 있음.
+
+
+------------------------------------------------
+
+<dbinfo>
+
+
+	request.setCharacterEncoding("utf-8");
+	Class.forName("com.mysql.jdbc.Driver");
+	String url = "jdbc:mysql://localhost:3306/sample";
+	String id = "user";
+	String pass = "1234";
+
+-db이름: sample
+
+create table member(
+id varchar(10) primary key,
+pw varchar(15) not null,
+name varchar(10) not null,
+email varchar(20),
+tel varchar(20),
+address varchar(30));
+
+insert member values('user', '1234','user','sbh@naver.com' ,'124-0909', '거제시');
+
+
+
+create table notice(
+num MEDIUMINT NOT NULL AUTO_INCREMENT,
+id varchar(10) not null,
+pw varchar(15),
+title varchar(15) not null,
+memo varchar(50),
+ndate datetime default CURRENT_TIMESTAMP,
+hit int(50) default '0',    //조회수
+ref int(50),                   //답글
+indent int(50),            //답글 들여쓰기
+step int(50),	//페이징
+PRIMARY KEY (num)
+);
+
+
+
+create table qna(
+num MEDIUMINT NOT NULL AUTO_INCREMENT,
+id varchar(10) not null,
+title varchar(15) not null,
+memo varchar(50),
+ndate datetime default CURRENT_TIMESTAMP,
+hit int(50) default '0',    //조회수
+ref int(50),                   //부모글번호 저장
+indent int(50),            //들여쓰기
+step int(50),	//같은 답글끼리의 출력순서
+PRIMARY KEY (num)
+);
+
+
+alter table qna
+add uploadPath varchar(20);
+
+
+alter table qna
+add filename varchar(20);
+
+
+create table freeboard(
+num MEDIUMINT NOT NULL AUTO_INCREMENT,
+id varchar(10) not null,
+title varchar(15) not null,
+memo varchar(50),
+ndate datetime default CURRENT_TIMESTAMP,
+hit int(50) default '0',    //조회수
+ref int(50),                   //부모글번호 저장
+indent int(50),            //들여쓰기
+step int(50),	//같은 답글끼리의 출력순서
+PRIMARY KEY (num)
+);
